@@ -71,7 +71,8 @@ const cn = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
-      return inputHints + "，/ 触发补全，: 触发命令";
+      // return inputHints + "，/ 触发补全，: 触发命令";
+      return "Message ChatGPT...";
     },
     Send: "发送",
     Config: {
@@ -366,7 +367,7 @@ const cn = {
       Topic:
         "使用四到五个字直接返回这句话的简要主题，不要解释、不要标点、不要语气词、不要多余文本，不要加粗，如果没有主题，请直接返回“闲聊”",
       Summarize:
-        "简要总结一下对话内容，用作后续的上下文提示 prompt，控制在 200 字以内",
+        "简要总结一下对话内容，用作后续的上下文提示 prompt，控制在 1000 字以内",
     },
   },
   Copy: {

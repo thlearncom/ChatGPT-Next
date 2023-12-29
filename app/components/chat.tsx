@@ -169,18 +169,18 @@ function PromptToast(props: {
 
   return (
     <div className={styles["prompt-toast"]} key="prompt-toast">
-      {props.showToast && (
-        <div
-          className={styles["prompt-toast-inner"] + " clickable"}
-          role="button"
-          onClick={() => props.setShowModal(true)}
-        >
-          <BrainIcon />
-          <span className={styles["prompt-toast-content"]}>
-            {Locale.Context.Toast(context.length)}
-          </span>
-        </div>
-      )}
+      {/*{props.showToast && (*/}
+      {/*  <div*/}
+      {/*    className={styles["prompt-toast-inner"] + " clickable"}*/}
+      {/*    role="button"*/}
+      {/*    onClick={() => props.setShowModal(true)}*/}
+      {/*  >*/}
+      {/*    <BrainIcon />*/}
+      {/*    <span className={styles["prompt-toast-content"]}>*/}
+      {/*      {Locale.Context.Toast(context.length)}*/}
+      {/*    </span>*/}
+      {/*  </div>*/}
+      {/*)}*/}
       {props.showModal && (
         <SessionConfigModel onClose={() => props.setShowModal(false)} />
       )}
@@ -453,6 +453,7 @@ export function ChatActions(props: {
 
   return (
     <div className={styles["chat-input-actions"]}>
+    <div>
       {couldStop && (
         <ChatAction
           onClick={stopAll}
@@ -491,11 +492,11 @@ export function ChatActions(props: {
         }
       />
 
-      <ChatAction
-        onClick={props.showPromptHints}
-        text={Locale.Chat.InputActions.Prompt}
-        icon={<PromptIcon />}
-      />
+       {/*<ChatAction*/}
+       {/*  onClick={props.showPromptHints}*/}
+       {/*  text={Locale.Chat.InputActions.Prompt}*/}
+       {/*  icon={<PromptIcon />}*/}
+       {/*/>*/}
 
       <ChatAction
         onClick={() => {
@@ -505,20 +506,20 @@ export function ChatActions(props: {
         icon={<MaskIcon />}
       />
 
-      <ChatAction
-        text={Locale.Chat.InputActions.Clear}
-        icon={<BreakIcon />}
-        onClick={() => {
-          chatStore.updateCurrentSession((session) => {
-            if (session.clearContextIndex === session.messages.length) {
-              session.clearContextIndex = undefined;
-            } else {
-              session.clearContextIndex = session.messages.length;
-              session.memoryPrompt = ""; // will clear memory
-            }
-          });
-        }}
-      />
+       {/*<ChatAction*/}
+       {/*  text={Locale.Chat.InputActions.Clear}*/}
+       {/*  icon={<BreakIcon />}*/}
+       {/*  onClick={() => {*/}
+       {/*    chatStore.updateCurrentSession((session) => {*/}
+       {/*      if (session.clearContextIndex === session.messages.length) {*/}
+       {/*        session.clearContextIndex = undefined;*/}
+       {/*      } else {*/}
+       {/*       session.clearContextIndex = session.messages.length;*/}
+       {/*        session.memoryPrompt = ""; // will clear memory*/}
+       {/*      }*/}
+       {/*    });*/}
+       {/*  }}*/}
+       {/*/>*/}
 
       <ChatAction
         onClick={() => setShowModelSelector(true)}
@@ -544,6 +545,23 @@ export function ChatActions(props: {
           }}
         />
       )}
+    </div>
+      <div>
+        <ChatAction
+            text={Locale.Chat.InputActions.Clear}
+            icon={<BreakIcon />}
+            onClick={() => {
+              chatStore.updateCurrentSession((session) => {
+                if (session.clearContextIndex === session.messages.length) {
+                  session.clearContextIndex = undefined;
+                } else {
+                  session.clearContextIndex = session.messages.length;
+                  session.memoryPrompt = ""; // will clear memory
+                }
+              });
+            }}
+        />
+      </div>
     </div>
   );
 }
@@ -1239,10 +1257,10 @@ function _Chat() {
                         !isUser
                       }
                       onContextMenu={(e) => onRightClick(e, message)}
-                      onDoubleClickCapture={() => {
-                        if (!isMobileScreen) return;
-                        setUserInput(message.content);
-                      }}
+                      // onDoubleClickCapture={() => {
+                      //   if (!isMobileScreen) return;
+                      //   setUserInput(message.content);
+                      // }}
                       fontSize={fontSize}
                       parentRef={scrollRef}
                       defaultShow={i >= messages.length - 6}

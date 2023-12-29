@@ -243,9 +243,9 @@ export const DEFAULT_MODELS = [
     name: "gemini-pro",
     available: true,
     provider: {
-        id: "openai",
-        providerName: "OpenAI",
-        providerType: "openai",
+      id: "google",
+      providerName: "Google",
+      providerType: "google",
     },
   },
 ] as const;

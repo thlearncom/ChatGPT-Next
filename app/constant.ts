@@ -12,7 +12,7 @@ export const DEFAULT_CORS_HOST = "https://a.nextweb.fun";
 export const DEFAULT_API_HOST = `${DEFAULT_CORS_HOST}/api/proxy`;
 export const OPENAI_BASE_URL = "https://api.openai.com";
 
-export const GEMINI_BASE_URL = "https://api.fastgpt.in/api";
+export const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/";
 
 export enum Path {
   Home = "/",
@@ -87,8 +87,8 @@ export const Azure = {
 };
 
 export const Google = {
-  ExampleEndpoint: "https://api.fastgpt.in/api/",
-  ChatPath: "/v1/chat/completions",
+  ExampleEndpoint: "https://generativelanguage.googleapis.com/",
+  ChatPath: "v1beta/models/gemini-pro:generateContent",
 
   // /api/openai/v1/chat/completions
 };
@@ -238,17 +238,17 @@ export const DEFAULT_MODELS = [
   //     providerType: "openai",
   //   },
   // },
-  // {
-  //   name: "deepl",
-  //   available: true,
-  //   provider: {
-  //     id: "openai",
-  //     providerName: "OpenAI",
-  //     providerType: "openai",
-  //   },
-  // },
   {
     name: "deepl",
+    available: true,
+    provider: {
+      id: "openai",
+      providerName: "OpenAI",
+      providerType: "openai",
+    },
+  },
+  {
+    name: "gemini-pro",
     available: true,
     provider: {
       id: "google",

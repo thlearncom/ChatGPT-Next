@@ -248,7 +248,7 @@ export const DEFAULT_MODELS = [
   //   },
   // },
   {
-    name: "deepl",
+    name: "gemini-pro",
     available: true,
     provider: {
       id: "google",

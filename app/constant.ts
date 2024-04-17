@@ -121,6 +121,15 @@ export const DEFAULT_MODELS = [
       providerType: "openai",
     },
   },
+  {
+    name: "deeplx",
+    available: true,
+    provider: {
+      id: "openai",
+      providerName: "OpenAI",
+      providerType: "openai",
+    },
+  },
   // {
   //   name: "gpt-4-0314",
   //   available: false,
@@ -247,15 +256,15 @@ export const DEFAULT_MODELS = [
   //     providerType: "openai",
   //   },
   // },
-  {
-    name: "gemini-pro",
-    available: true,
-    provider: {
-      id: "google",
-      providerName: "Google",
-      providerType: "google",
-    },
-  },
+  // {
+  //   name: "gemini-pro",
+  //   available: true,
+  //   provider: {
+  //     id: "google",
+  //     providerName: "Google",
+  //     providerType: "google",
+  //   },
+  // },
 ] as const;
 
 export const CHAT_PAGE_SIZE = 15;
